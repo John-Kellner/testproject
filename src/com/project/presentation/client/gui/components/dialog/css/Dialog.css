@@ -1,0 +1,55 @@
+.root {
+    position: relative;
+    width: 80%;
+    height: 90%;
+    top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #404148;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    box-shadow: -2px 0px 63px #888888;
+    min-height: 400px;
+    max-width: 1000px;
+    z-index: 10000000000;
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-left: 50px;
+    padding-right: 20px;
+    margin-top: 50px;
+    background-color: white;
+}
+
+.title {
+    position: relative;
+    left: 50px;
+    font-family: "RobotoDraft","Roboto",sans-serif;
+    letter-spacing: .1px;
+    -webkit-font-smoothing: antialiased;
+    color: white;
+    font-size: 2em;
+}
+
+.content {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 30px;
+    font-family: "RobotoDraft","Roboto",sans-serif;
+    letter-spacing: .1px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.close {
+    position: relative;
+    float: right;
+    height: 60px;
+    width: 52px;
+    font-size: 33px;
+    cursor: pointer;
+    top: -87px;
+}

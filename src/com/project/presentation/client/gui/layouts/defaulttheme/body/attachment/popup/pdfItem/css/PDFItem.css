@@ -1,0 +1,60 @@
+.root {
+    position: relative;
+    float: right;
+    height: 120px;
+    width: 400px;
+}
+
+.image {
+    position: relative;
+    float: left;
+    font-size: 38px;
+    top: 10px;
+    color: cadetblue;
+}
+
+.text {
+    font-family: "RobotoDraft","Roboto",sans-serif;
+    letter-spacing: .1px;
+    -webkit-font-smoothing: antialiased;
+
+    position: relative;
+    float: left;
+    left: 10px;
+    font-size: 21px;
+    font-weight: bold;
+    top: 14px;
+    width: 344px;
+}
+
+.hinweis {
+    font-family: "RobotoDraft","Roboto",sans-serif;
+    letter-spacing: .1px;
+    -webkit-font-smoothing: antialiased;
+
+    position: relative;
+    float: left;
+    top: 16px;
+    left: 10px;
+    color: gray;
+}
+
+.panel {
+    height: 70px;
+    width: 100%;
+    position: relative;
+    float: left;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.panel:hover {
+    opacity: 1.0;
+}
+
+.noSelect {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}

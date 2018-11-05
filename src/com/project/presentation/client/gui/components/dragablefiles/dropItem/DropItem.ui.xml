@@ -1,0 +1,21 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:fromupload="urn:import:com.project.presentation.client.gui.components.dragablefiles.dropItem.fromupload">
+
+    <ui:with field="css" type="com.project.presentation.client.gui.components.dragablefiles.css.DragableFileStyle"></ui:with>
+    <g:FlowPanel ui:field="dropplace" styleName="{css.getStyle.dropItem}">
+        <g:HTMLPanel styleName="{css.getStyle.innerPanel}">
+            <Div class="{css.getStyle.imagepanel}">
+                <g:FlowPanel styleName="mdi-editor-insert-drive-file {css.getStyle.dropImage}"></g:FlowPanel>
+            </Div>
+            <Div class="{css.getStyle.textpanel}">
+                <center>
+                    <g:Label ui:field="text" styleName="{css.getStyle.text}"></g:Label>
+                    <br></br>
+                    <g:Label ui:field="search" text="Durchsuchen" styleName="{css.getStyle.durchsuchen}"></g:Label>
+                </center>
+                <fromupload:DragUploadPanel ui:field="drag" visible="false"></fromupload:DragUploadPanel>
+            </Div>
+        </g:HTMLPanel>
+    </g:FlowPanel>
+</ui:UiBinder>

@@ -1,0 +1,332 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+targetCompatibility = 1.7
+sourceCompatibility = 1.7
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
+/** Projekteinstellungen in Eclipse */
+eclipse {
+    project {
+        natures 'com.google.gwt.eclipse.core.gwtNature'
+        buildCommand 'com.google.gdt.eclipse.core.webAppProjectValidator'
+        buildCommand 'com.google.gwt.eclipse.core.gwtProjectValidator'
+    }
+    classpath {
+        containers 'com.google.gwt.eclipse.core.GWT_CONTAINER'
+        defaultOutputDir = new File(project.getProjectDir().getAbsolutePath() + "/war/WEB-INF/classes");
+    }
+}
+
+webAppDirName = 'war'
+httpPort = 8080
+
+
+idea.module {
+    //and some extra dirs that should be excluded by IDEA
+    excludeDirs += file('.idea')
+    excludeDirs += file('build')
+    excludeDirs += file('gradle')
+    excludeDirs += file('extras')
+    excludeDirs += file('upload')
+}
+
+/** Anpassung des Projektes als UTF-8 */
+eclipseJdt << {
+    File f = file('.settings/org.eclipse.core.resources.prefs')
+    f.write('eclipse.preferences.version=1\n')
+    f.append('encoding/<project>=utf-8')
+}
+
+/* Definition der Projekt Quellen */
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+        output.classesDir = new File(project.getProjectDir().getAbsolutePath() + "/war/WEB-INF/classes")
+    }
+
+    /*extras {
+        srcDirs 'extras'
+    }*/
+
+    test.java.srcDir 'test'
+}
+
+repositories {
+    maven {
+        url nexus
+        credentials {
+            username USER
+            password PASSWORD
+        }
+    }
+    maven {
+        url mavenCentral
+        credentials {
+            username USER
+            password PASSWORD
+        }
+    }
+}
+
+/** Manifest fuer die Jar */
+jar {
+    version = version
+    manifest {
+        attributes 'Implementation-Title': 'Showcase',
+                'Implementation-Version': version,
+                'Main-Class': 'Main'
+    }
+}
+
+/** Compile Vorgang nur mit UTF-8 */
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+/** Dateityp *.java wird in die Jar gepackt */
+jar.doFirst {
+    sourceSets.main.java.srcDirs.each {
+        from it
+    }
+}
+
+/** Generierung Jar Task */
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier 'sources'
+    from sourceSets.main.allSource
+}
+
+/** Definition des Artifactory Arcive 'Jar' */
+artifacts {
+    archives jar
+    archives sourcesJar
+}
+
+/** Lokaler Pfad fuer das *.jar */
+tasks.withType(Jar) {
+    //destinationDir = file("$rootDir/../../libs/")
+}
+
+configurations {
+    deployToLib
+}
+
+/** Aufloesungs Strategie - Snapshots werden sofort und nicht erst nach Timeouts aktuallisiert */
+configurations.all {
+    resolutionStrategy {
+        cacheDynamicVersionsFor 10*60, 'seconds'
+        cacheChangingModulesFor 0, 'seconds'
+    }
+}
+
+dependencies {
+    testCompile 'org.codehouse:groovy-all:2.4.3',
+            'org.spockframework:spock-core:2.4',
+            'org.spockframework:spock-reports:1.2.5',
+            'org.junit:junit:4.12',
+            'org.hamcrest:hamcrest-core:1.3',
+            'org.mockito:mockito-all:1.10.19'
+    providedCompile 'com.google:gwt-user:2.7.0',
+            'com.google:gwt-dev:2.7.0',
+            'org.codehouse:groovy-all:2.4.3',
+            'javax.validation:validation-api:1.0.0.GA',
+            'javax.validation:validationsource:1.0.0',
+            'com.google:gwt-codeserver:2.7.0',
+            'com.google:gwt-servlet:2.7.0'
+            deployToLib 'com.google.gwt:gwt-servlet:' + gwtVersion
+    compile 'com.allen-sauer.gwt.log:gwt-log:3.3.2',
+            'com.project.widget:globalwidgets:1.0.0',
+            'org.helios.gwt:gwt-webfonts:0.1',
+
+            'org.testng:testng-6.8:6.8',
+
+            /** Spring */
+            'com.springsource.org:aopalliance:1.0.0',
+            'org.springframework:aop:4.0.0.M3',
+            'com.springsource.org.apache.commons:io:1.4.0',
+            'com.springsource.org.apache.commons:logging:1.1.1',
+            'org.springframework:spring4gwt:0.0.1',
+            'org.springframework:beans:4.0.0.M3',
+            'org.springframework:build-src:4.0.0.M3',
+            'org.springframework:context:4.0.0.M3',
+            'org.springframework:core:4.0.0.M3',
+            'org.springframework:expression:4.0.0.M3',
+            'org.springframework:jdbc:4.0.0.M3',
+            'org.springframework:orm:4.0.0.M3',
+            'org.springframework:test:4.0.0.M3',
+            'org.springframework:tx:4.0.0.M3',
+            'org.springframework:web:4.0.0.M3',
+
+            /** Hibernate */
+            'org.hibernate:jboss-logging:3.1.0.GA',
+            'javax.transaction:jboss-transaction-api_1.1_spec-1.0.1.Final:1.0.1',
+            'org.hibernate:hibernate-commons-annotations:4.0.2.Final',
+            'org.hibernate:hibernate-core:4.2.4.Final',
+            'org.hibernate:hibernate-entitymanager:4.2.4.Final',
+            'org.hibernate:hibernate-jpa-2.0-api:1.0.1.Final',
+            'org.hibernate:hibernate-envers:4.2.4.Final',
+            'org.hibernate:dom4j:1.6.1',
+            'com.springsource:javassist:3.12.1.GA',
+            'org.hibernate:antlr:2.7.7',
+
+            /** Datenbank */
+            'com.mysql.jdbc:mysql:5.1.34',
+            'p6spy:p6spy:1.3',
+            'org.apache.log4j:log4j:1.2.17',
+
+            /** GWT Material Design
+             * http://gwt-material.appspot.com/ */
+            'com.github.gwtmaterialdesign:gwt-material:1.3.3',
+
+            /** Image Upload */
+            /** Apache Fileupload */
+            'org.apache.commons:fileupload:1.3.1',
+            'com.google.gwt:gwtupload:0.6.3',
+
+            /** PedDown - Markdown Parser */
+            //'org.pegdown:pegdown:1.5.0',
+            //'org.parboiled:parboiled:2.11',
+            //'org.parboiled:parboiled-core:1.1.7',
+            //'org.parboiled:parboiled-java:1.1.7',
+            //'org.ow2.asm:asm-all:5.0.4',
+
+            /** Email versand */
+            'org.apache.commons:commons-email:1.3.1',
+
+            /** CkEditor */
+            'com.axeiva:ckeditor:0.5',
+
+            /** URL Rewriting  */
+            'org.tuckey:urlrewritefilter:4.0.3',
+
+            /** QR Code generator */
+            'com.google.zxing:core:3.2.1',
+
+            /** StringUtils */
+            'org.apache.commons:commons-lang3:3.0'
+
+    deployToLib 'com.google.gwt:gwt-servlet:' + gwtVersion,
+            'org.springframework:tx:4.0.0.M3'
+}
+
+/** Reset des lib Ordners */
+task clearLibs(type: Delete) {
+    description = 'Loescht das lib Verzeichnis'
+    delete 'war/WEB-INF/lib'
+}
+
+/** Abhaenigkeiten der Konfiguration deployToLib werden nach lib kopiert */
+task copyDeploy(type: Copy, dependsOn: clearLibs) {
+    from configurations.deployToLib
+    into 'war/WEB-INF/lib'
+    rename("gwt-servlet-" + gwtVersion, "gwt-servlet")
+}
+
+/** Lokale Konfiguration Kopiert ShowroomWidgets nach WEB-INF/lib */
+/* task copyShowroomWidget(type: Copy, dependsOn: copyDeploy) {
+    group 'buildLocal'
+    from configurations.showroomwidgets.findAll {
+        jar -> jar.name.startsWith('showroomwidgets')
+            /* Auflistung der Jar File names
+             * println ("Dependencie : $jar.name")
+             */
+    /*}
+    into 'war/WEB-INF/lib'
+    rename("^showroomwidgets-.*", "showroomwidgets.jar")
+}*/
+
+/** Nach dem Dependency Refresh werden wird die jar's nach libs verschoben */
+//tasks.eclipse.dependsOn(':copyDeploy')
+//tasks.eclipse.dependsOn(':copyLocalResources')
+
+/** Task Bau des Backends fuer Parent Projekte */
+task buildBackend {
+    description = 'Bau des Jar Files'
+    dependsOn clean
+    dependsOn jar
+}
+
+/** GWT Compiler */
+task compileGwt(dependsOn: [classes], type: JavaExec) {
+
+    inputs.source sourceSets.main.java.srcDirs
+    //inputs.dir sourceSets.main.output.resourcesDir
+    outputs.dir buildDir
+
+    // Workaround for incremental build (GRADLE-1483)
+    //outputs.upToDateSpec = new org.gradle.api.specs.AndSpec()
+
+    doFirst {
+        file(buildDir).mkdirs()
+    }
+
+    main = 'com.google.gwt.dev.Compiler'
+
+    classpath {
+        [
+                sourceSets.main.java.srcDirs, // Java source
+                //sourceSets.main.output.resourcesDir, // Generated resources
+                sourceSets.main.output.classesDir, // Generated classes
+                sourceSets.main.compileClasspath, // Deps
+                //sourceSets.extras
+        ]
+    }
+
+    args =
+            [
+                    'com.project.presentation.presentation', // Your GWT module
+                    '-war', "${project.buildDir}/war" ,
+                    '-logLevel', 'INFO',
+                    '-localWorkers', '2',
+                    '-compileReport',
+                    //'-extra', extraDir,
+                    // '-draftCompile' // Speeds up compile with 25%
+            ]
+    //Xmx = '2048M'
+    maxHeapSize = '2048M'
+}
+
+/**
+ * Bau der War ueber Jenkins CI Build Server.
+ */
+war {
+    /** war Task Bezeichnung */
+    description = 'Generierung unserers files *.war'
+    /** Bezeichnug : War Archive */
+    archiveName = 'gostraight.war'
+    /** Kopiert alle benoetigten jars nach lib */
+    dependsOn copyDeploy
+    /** Crosscompile GWT zu Javascript */
+    dependsOn compileGwt
+
+    /** Hibernate, Spring, Log4j Konfigurationen hinzufuegen */
+
+//    from("war/WEB-INF/log4j.properties") {
+//        into("war/WEB-INF/classes")
+//    }
+//
+//	from ("${projectDir}/../CCIBackend/src/de/scm/cci/backend/public") {
+//		into "/WEB-INF"
+//
+//		/** WEB XML Konfiguration - Produktivsystem */
+//		rootSpec.exclude '**/web.xml'
+//		rootSpec.rename ('Webserver.web.xml','web.xml')
+//	}
+//
+    /** Projekt Ordner war index.html, *.css lib */
+    from "${projectDir}/war"
+
+    /** Aufnahme des Gebauten war */
+    from "${project.buildDir}/war"
+
+}

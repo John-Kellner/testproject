@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd"
+>
+
+    <!-- Lokaler Zugriff  -->
+    <bean id="dataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="username" value="deployment" />
+        <property name="password" value="deployment" />
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/laiquendi" />
+
+        <!-- DB2 Configuration Example :
+        <property name="driverClassName" value="com.ibm.db2.jcc.DB2Driver" />
+        <property name="url" value="jdbc:db2://172.27.1.101:50000/SHOWCASE:progressiveStreaming=2;" />
+        -->
+    </bean>
+
+    <bean id="uploadSource" class="com.project.presentation.server.upload.bean.UploadBean">
+        <!-- LINUX Images / Zeugnis / QR Code Upload Dir -->
+        <property name="imageUploadDir" value="upload/portrait"/>
+        <property name="zeugnisUploadDir" value="upload/zertifikate"/>
+        <property name="qrCodeDir" value="upload/qr/"/>
+
+        <!-- WINDOWS Entwicklungssystem Images / Zeugniss / QR Code Upload Dir -->
+        <!--<property name="zeugnisUploadDir" value="C:/QRCode/attachments/"/> -->
+        <!--<property name="qrCodeDir" value="C:/QRCode/qr/"></property>-->
+    </bean>
+
+    <!-- Domain Name + /? bsp. www.liquendi.com/?-->
+    <bean id="domain" class="com.project.presentation.server.upload.bean.DomainBean">
+        <property name="domainname" value="http://www.gostraight.de/?"/>
+    </bean>
+
+    <!-- external Programm wkhtmltoPDF - Convert HTML to PDF
+        System Envoirment Variable - System Umgebungsvariable zum Programm
+        @link http://wkhtmltopdf.org/downloads.html -->
+    <bean id="wkhtmltopdf" class="com.project.presentation.server.upload.bean.WkHtmlBean">
+        <property name="applicationName" value="wkhtmltopdf"/>
+        <property name="applicationPath" value="HTML_TO_PDF"/>
+        <property name="htmlTemplateSourceDirLinux" value="/home/jimmy/tomcat7/webapps/liquendi/resource/pdf/defaulttheme/"/>
+        <property name="htmlTemplateSourceDirWindows" value="resource/pdf/defaulttheme/"/>
+        <property name="htmlExportDir" value="upload/html"/>
+        <property name="zoomPDFWindows" value="0.580"/>
+        <property name="zoomPDFLinux" value="0.430"/>
+    </bean>
+
+    <!-- SMTP Email Bean -->
+    <bean id="smtp" class="com.project.presentation.server.email.SMTPConfigBean">
+        <property name="mailServer" value="smtp.strato.de"/>
+        <property name="username" value="info@gostraight.de"/>
+        <property name="password" value="CHQrqsq9q8ID"/>
+        <property name="email" value="info@gostraight.de" />
+        <property name="pdf" value="gostraight.pdf" />
+
+        <!-- Lokal -->
+        <!--<property name="pdf" value="C:/Users/john/Documents/project/Presentation/test/email/Liquendi.pdf" />-->
+    </bean>
+
+    <!--  JNDI Lookup defined resource in Tomcat context.xml -->
+<!--     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> -->
+<!--     	<property name="jndiName" value="java:comp/env/jdbc/showcase"/> -->
+<!-- 	</bean> -->
+ 
+	<context:component-scan base-package="com.project.presentation" />
+    <context:annotation-config />
+    
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    	<property name="dataSource" ref="dataSource" />
+    	<property name="packagesToScan" value="com.project.presentation.server" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="true" />
+                <property name="generateDdl" value="true" />
+                <!--<property name="databasePlatform" value="org.hibernate.dialect.DB2Dialect" />-->
+                <property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+            </bean>
+        </property>
+        <property name="persistenceUnitName" value="wctemplatePU"/>
+        <property name="jpaDialect">
+    		<bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+		</property>
+    </bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    	<property name="entityManagerFactory" ref="entityManagerFactory"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+    <!-- Bean Validation JSR-303
+        TODO : Unable to find default provider
+    -->
+    <!--<bean id="validatorFactory" class="javax.validation.Validation"
+          factory-method="buildDefaultValidatorFactory" />
+
+    <bean id="validator" factory-bean="validatorFactory"
+          factory-method="getValidator" />-->
+
+</beans>

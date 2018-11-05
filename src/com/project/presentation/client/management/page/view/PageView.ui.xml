@@ -1,0 +1,13 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:j='urn:import:com.project.presentation.client.management.menu.view.listbox'>
+
+    <ui:with field='css' type='com.project.presentation.client.management.page.view.css.PageViewStyle'/>
+
+    <g:ScrollPanel width="100%">
+        <g:FlowPanel ui:field="panel">
+
+        </g:FlowPanel>
+    </g:ScrollPanel>
+</ui:UiBinder>

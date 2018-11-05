@@ -1,0 +1,41 @@
+.root {
+    position: relative;
+    float: right;
+    height: 37px;
+    width: 68px;
+    margin: 4px;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nr {
+    position: relative;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+    top: 3px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.icon {
+    position: relative;
+    float: left;
+    font-size: 32px;
+    top: -7px;
+    left: 4px;
+    color: gray;
+}
+
+.shaddow {
+    position: absolute;
+    opacity: 0.7;
+    height: 100%;
+    width: 100%;
+    top:0px;
+    bottom: 0px;
+}

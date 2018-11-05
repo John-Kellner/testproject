@@ -1,0 +1,8 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <ui:with field='css' type='com.project.presentation.client.gui.components.chip.css.ChipStyle'/>
+
+    <g:HTML ui:field="plus" addStyleNames="{css.getStyle.plus}" visible="true">
+        <i class="mdi-content-add" style='cursor: pointer; color:gray;'></i>
+    </g:HTML>
+</ui:UiBinder>

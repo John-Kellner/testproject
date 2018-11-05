@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE urlrewrite
+        PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<urlrewrite> <!--use-query-string="true"-->
+    <!--<outbound-rule>
+        <note>
+            rewrite
+            from \?john.kellner
+            to /john.kellner
+        </note>
+        <condition type="query-string">[0-9a-z]</condition>-->
+        <!--<from>^\?</from>
+        <to type="forward">/$1</to>
+    </outbound-rule>-->
+</urlrewrite>

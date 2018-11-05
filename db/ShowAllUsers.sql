@@ -1,0 +1,1 @@
+Select PK_user, name, email, password from User;

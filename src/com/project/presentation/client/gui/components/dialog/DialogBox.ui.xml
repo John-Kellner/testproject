@@ -1,0 +1,16 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m="urn:import:gwt.material.design.client.ui">
+
+    <ui:with field='css' type='com.project.presentation.client.gui.components.dialog.css.DialogStyle'/>
+
+    <g:FlowPanel addStyleNames="{css.getStyle.root}">
+        <g:HTML ui:field="close" addStyleNames="{css.getStyle.close}">
+            <i class="mdi-action-highlight-remove" style='cursor: pointer; color:white;'></i>
+        </g:HTML>
+        <g:Label ui:field="title" addStyleNames="{css.getStyle.title}"></g:Label>
+        <g:ScrollPanel ui:field="box" addStyleNames="{css.getStyle.box}">
+            <g:HTML ui:field="content" addStyleNames="{css.getStyle.content}"></g:HTML>
+        </g:ScrollPanel>
+    </g:FlowPanel>
+</ui:UiBinder>

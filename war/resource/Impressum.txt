@@ -1,0 +1,16 @@
+<h2>liquendi.com</h2>
+<h3>Dietmar Gleinser<br />Silcherstr. 55<br />89231 Neu-Ulm<br />Deutschland</h3>
+<h3>Telefon: +49 17 29 31 37 29<br />E-Mail: info@liquendi.com</h3>
+<h3><br />Bei Rückfragen, Anregungen oder eventuellen technischen Problemen senden Sie<br />bitte eine E-Mail an:</h3>
+<h3><br />info@liquendi.com</h3>
+<p> </p>
+<h2>Rechtliche Hinweise</h2>
+<h3><br />Haftung</h3>
+<h3><br />Die Inhalte der Website von liquendi.com werden ständig geprüft und aktualisiert.<br />Trotz aller Sorgfalt können sich Daten kurzfristig ändern. Deswegen kann keine<br />Haftung oder Garantie für die Aktualität, Vollständigkeit und Richtigkeit der zur<br />Verfügung gestellten Inhalte übernommen werden.<br />Das gilt auch für die auf liquendi.com enthaltenen Links zu fremden Seiten.<br />Von den dort publizierten Inhalten distanzieren sich die Betreiber von liquendi.com<br />ausdrücklich. Dies gilt für alle Links, die zu Seiten und Bannern außerhalb der<br />Website von liquendi.com führen.</h3>
+<h3><br />Urheberrecht</h3>
+<h3><br />Inhalt und Struktur der Website von liquendi.com sind urheberrechtlich geschützt. Die<br />Verwendung von Texten und Bildern sowie die Vervielfältigung von Informationen<br />und Daten bedarf der vorherigen Zustimmung der Betreiber von liquendi.com.</h3>
+<h3><br />Nutzungsrecht</h3>
+<h3><br />Das Nutzungsrecht für veröffentlichte, von der liquendi.com selbst erstellter oder von<br />liquendi.com erworbener urheberrechtlich geschützter Bilder bleibt allein bei der<br />liquendi.com. Eine Vervielfältigung oder Verwendung solcher Bilder in anderen<br />elektronischen oder gedruckten Publikationen ist ohne ausdrückliche Zustimmung<br />der liquendi.com nicht gestattet.</h3>
+<h3><br />Für Anregungen und Hinweise sind wir stets dankbar. </h3>
+<p> </p>
+<p> </p>

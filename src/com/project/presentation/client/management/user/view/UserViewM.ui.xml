@@ -1,0 +1,60 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'>
+
+    <ui:with field='css' type='com.project.presentation.client.management.menu.view.css.MenuViewStyle'/>
+
+    <g:ScrollPanel width="100%">
+        <g:FlowPanel>
+            <m:MaterialNavBar align="right" wave="purple" color="#404148" >
+                <m:nav><m:MaterialLink ui:field="btnImpressum" text="Impressum"  textColor="white" tooltip="Impressum" /></m:nav>
+                <m:nav><m:MaterialLink ui:field="btnDatenschutz" text="Datenschutz"  textColor="white" tooltip="Datenschutzerklärung" /></m:nav>
+                <m:nav><m:MaterialLink ui:field="logout" text="Abmelden" icon="mdi-action-exit-to-app" iconPosition="left" textColor="white" tooltip="Logout" /></m:nav>
+            </m:MaterialNavBar>
+
+            <m:MaterialRow>
+                <m:MaterialColumn grid="s12 m12" offset="s4" addStyleNames="{css.getStyle.grid}">
+                    <span class="flow-text">Intelligent Management Platform</span>
+                    <g:Label ui:field="welcome" text="Willkommen"></g:Label>
+                </m:MaterialColumn>
+            </m:MaterialRow>
+
+            <m:MaterialRow>
+                <m:MaterialColumn grid="s6" >
+                    <g:FlowPanel ui:field="userAddPanel"/>
+                </m:MaterialColumn>
+
+                <m:MaterialColumn grid="s6" >
+                    <m:MaterialCollapsible ui:field="container" type="accordion" styleName="{css.getStyle.panel}">
+                        <m:item>
+                            <m:MaterialCollapsibleItem>
+                                <m:header><m:MaterialLink text="Fotostudio" icon="mdi-action-account-circle" textColor="black"/></m:header>
+                                <m:content>
+                                    <g:FlowPanel>
+                                        <g:Image ui:field="mImage"/>
+                                        <g:HTML ui:field="mFirma"/>
+                                        <g:HTML ui:field="mAdresse"/>
+                                        <g:HTML ui:field="mLand"/>
+                                        <g:HTML ui:field="mTel"/>
+                                        <g:HTML ui:field="mFax"/>
+                                        <g:HTML ui:field="mEmail"/>
+                                        <g:HTML ui:field="mPage"/>
+                                        <g:HTML ui:field="mOeffnungszeiten"/>
+                                    </g:FlowPanel>
+                                </m:content>
+                            </m:MaterialCollapsibleItem>
+                        </m:item>
+
+                        <m:item>
+                            <m:MaterialCollapsibleItem ui:field="allUsers">
+                                <m:header>
+                                    <m:MaterialLink text="Angelegte Benutzer" icon="mdi-action-account-child" textColor="black"/>
+                                </m:header>
+                            </m:MaterialCollapsibleItem>
+                        </m:item>
+                    </m:MaterialCollapsible>
+                </m:MaterialColumn>
+            </m:MaterialRow>
+        </g:FlowPanel>
+    </g:ScrollPanel>
+</ui:UiBinder>

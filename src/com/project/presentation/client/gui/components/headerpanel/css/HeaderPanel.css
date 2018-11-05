@@ -1,0 +1,79 @@
+.root {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 25px;
+    background-color: lightgray;
+}
+
+.itemlbl {
+    position: relative;
+    margin-left: 5%;
+    color: gray;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    top: 0px;
+}
+
+.toggelbtn {
+    position: relative;
+    float: right;
+    right: 15px;
+    top: 18px;
+    left: 10px;
+}
+
+.leftlblrahmen {
+    position: relative;
+    float: left;
+    line-height: 52px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 120px;
+    font-size: 18px;
+}
+
+.bildlblrahmen {
+    position: relative;
+    float: left;
+    line-height: 52px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 120px;
+    font-size: 18px;
+}
+
+@keyframes toggelFadeIn {
+    0% {background-color: white}
+    100% {background-color: lightgray}
+}
+
+.gridrow {
+    cursor: pointer;
+    padding-left: 25px !important;
+    top: 0px;
+    height: 57px;
+}
+
+.gridrow:hover{
+    -webkit-animation: toggelFadeIn 0.5s forwards;
+    -moz-animation: toggelFadeIn 0.5s forwards;
+    -o-animation: toggelFadeIn 0.5s forwards;
+    animation: toggelFadeIn 0.5s forwards;
+}
+
+.underscore {
+    position: relative;
+    height: 2px;
+    width: 100%;
+    background-color: gray;
+}
+
+.underscoredisabled {
+    position: relative;
+    height: 2px;
+    width: 100%;
+    background-color: white;
+}

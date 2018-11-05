@@ -1,0 +1,10 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <ui:with field='css' type='com.project.presentation.client.gui.layouts.defaulttheme.body.attachment.popup.pdfItem.css.PDFItemStyle'/>
+
+    <g:FlowPanel ui:field="root" styleName="{css.getStyle.panel} {css.getStyle.noSelect}">
+        <g:Label styleName="mdi-editor-insert-drive-file {css.getStyle.image}"/>
+        <g:Label ui:field="lbl" styleName="{css.getStyle.text}"/>
+        <g:Label styleName="{css.getStyle.hinweis}">PDF Dokument</g:Label>
+    </g:FlowPanel>
+</ui:UiBinder>

@@ -1,0 +1,77 @@
+.root {
+
+}
+
+.rahmen {
+    border: 1px solid #8dccad;
+    width: 45px;
+    height: 16px;
+    background-color: #8dccad;
+    border-radius: 8px;
+}
+
+.round {
+    position: relative;
+    top: -22px;
+    background-color: #0d9c5a;
+    height: 28px;
+    width: 28px;
+    border-radius: 16px;
+    left: 23px;
+    cursor: pointer;
+    -webkit-box-shadow: 1px 4px 13px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 4px 13px -3px rgba(0,0,0,0.75);
+    box-shadow: 1px 4px 13px -3px rgba(0, 0, 0, 0.75);
+}
+
+@keyframes toggelFadeOff {
+    0% {background-color: #0d9c5a; left: 23px;}
+    100% {background-color: #bd2121; left: -2px;}
+}
+
+@keyframes toggelFadeOn {
+    0% {background-color: #bd2121 ; left: -2px;}
+    100% {background-color: #0d9c5a; left: 23px;}
+}
+
+.roundAnimatedFadeOff {
+    -webkit-animation: toggelFadeOff 0.5s forwards;
+    -moz-animation: toggelFadeOff 0.5s forwards;
+    -o-animation: toggelFadeOff 0.5s forwards;
+    animation: toggelFadeOff 0.5s forwards;
+}
+
+.roundAnimatedFadeOn {
+    -webkit-animation: toggelFadeOn 0.5s forwards;
+    -moz-animation: toggelFadeOn 0.5s forwards;
+    -o-animation: toggelFadeOn 0.5s forwards;
+    animation: toggelFadeOn 0.5s forwards;
+}
+
+@keyframes borderFadeOff {
+    0% {background-color: #8dccad; border-color:#8dccad}
+    100% {background-color: #c68888; border-color:#c68888}
+}
+
+@keyframes borderFadeOn {
+    0% {background-color: #c68888; border-color:#c68888}
+    100% {background-color: #8dccad; border-color:#8dccad}
+}
+
+.borderAnimatedFadeOff {
+    -webkit-animation: borderFadeOff 0.5s forwards;
+    -moz-animation: borderFadeOff 0.5s forwards;
+    -o-animation: borderFadeOff 0.5s forwards;
+    animation: borderFadeOff 0.5s forwards;
+}
+
+.borderAnimatedFadeOn {
+    -webkit-animation: borderFadeOn 0.5s forwards;
+    -moz-animation: borderFadeOn 0.5s forwards;
+    -o-animation: borderFadeOn 0.5s forwards;
+    animation: borderFadeOn 0.5s forwards;
+}
+
+.text {
+    position: absolute;
+}

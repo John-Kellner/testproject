@@ -1,0 +1,67 @@
+.root {
+    position: relative;
+    float: right;
+    width: 400px;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 100;
+    box-shadow: 0 2px 9px 2px #777;
+}
+
+.root:after, .root:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.root:before {
+    border-color: rgba(136,183,213,0);
+    border-bottom-color: lightgray;
+    border-width: 13px;
+    margin-left: 153px;
+}
+
+.root:after {
+    border-color: rgba(136,183,213,0);
+    border-bottom-color: white;
+    border-width: 11px;
+    margin-left: 154px;
+}
+
+.header {
+    position: relative;
+    float: left;
+    height: 56px;
+    width: 100%;
+    border-bottom: 3px solid lightgray;
+}
+
+.headerTitel {
+    font-family: "RobotoDraft","Roboto",sans-serif;
+    letter-spacing: .1px;
+    -webkit-font-smoothing: antialiased;
+    margin: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    left: 12px;
+    position: relative;
+}
+
+.body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.noSelect {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}

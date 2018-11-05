@@ -1,0 +1,26 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <ui:with field='css' type='com.project.presentation.client.gui.components.chip.css.ChipStyle'/>
+
+    <g:FlowPanel height="36px">
+        <g:FlowPanel>
+            <g:HTMLPanel tag="span" addStyleNames="{css.getStyle.text}">
+                <g:HTML ui:field="text" addStyleNames="{css.getStyle.label}"></g:HTML>
+                <g:TextBox ui:field="textbox" addStyleNames="{css.getStyle.textBox}" visible="false"/>
+            </g:HTMLPanel>
+
+            <g:HTML ui:field="editBtn" addStyleNames="{css.getStyle.close}">
+                <i class="mdi-action-settings" style='cursor: pointer; color:white;'></i>
+            </g:HTML>
+
+            <g:HTML ui:field="saveBtn2" addStyleNames="{css.getStyle.save}" visible="false">
+                <i class="mdi-action-done" style='cursor: pointer; color:white;'></i>
+            </g:HTML>
+
+            <g:HTML ui:field="tabAnzeige" addStyleNames="{css.getStyle.anzeige}" visible="false">
+                <i class="mdi-action-tab" style='cursor: pointer; color:white;'></i>
+            </g:HTML>
+        </g:FlowPanel>
+    </g:FlowPanel>
+</ui:UiBinder>

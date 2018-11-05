@@ -1,0 +1,27 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:button="urn:import:com.project.presentation.client.gui.components.togglebtn.client.button"
+             xmlns:design="urn:import:gwt.material.design.client.ui">
+    <ui:with field="css" type="com.project.presentation.client.gui.components.headerpanel.css.HeaderStyle"/>
+        <design:MaterialRow>
+
+            <design:MaterialColumn ui:field="bild" grid="s5" styleName="{css.getStyle.gridrow}">
+                <g:FlowPanel styleName="{css.getStyle.leftlblrahmen}">
+                    <g:Label styleName="{css.getStyle.itemlbl}">Bild</g:Label>
+                    <g:FlowPanel ui:field="scorebild" styleName="{css.getStyle.underscore}"/>
+                </g:FlowPanel>
+            </design:MaterialColumn>
+
+            <design:MaterialColumn ui:field="text" grid="s5" styleName="{css.getStyle.gridrow}">
+                <g:FlowPanel styleName="{css.getStyle.bildlblrahmen}">
+                    <g:Label styleName="{css.getStyle.itemlbl}">Text</g:Label>
+                    <g:FlowPanel ui:field="scoretext" styleName="{css.getStyle.underscore}"/>
+                </g:FlowPanel>
+            </design:MaterialColumn>
+
+            <design:MaterialColumn grid="s2">
+                <button:ToggelButton ui:field="toggel" styleName="{css.getStyle.toggelbtn}"/>
+            </design:MaterialColumn>
+        </design:MaterialRow>
+
+</ui:UiBinder>

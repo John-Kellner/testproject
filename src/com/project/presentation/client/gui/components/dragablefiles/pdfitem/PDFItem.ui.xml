@@ -1,0 +1,25 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <ui:with field="css" type="com.project.presentation.client.gui.components.dragablefiles.css.DragableFileStyle"></ui:with>
+    <g:FlowPanel ui:field="border" styleName="{css.getStyle.pdfItem}">
+        <g:HTMLPanel styleName="{css.getStyle.innerPanel}">
+            <Div class="{css.getStyle.imagepanel}">
+                <g:FlowPanel styleName="{css.getStyle.actions}">
+                    <g:FlowPanel ui:field="btnDelete" styleName="mdi-action-delete {css.getStyle.btnPdfDelete}"></g:FlowPanel>
+                    <g:FlowPanel ui:field="btnDownload" styleName="mdi-file-file-download {css.getStyle.btnDownload}"></g:FlowPanel>
+                </g:FlowPanel>
+                <g:FlowPanel styleName="{css.getStyle.pdfImage}">
+                    <g:FlowPanel ui:field="pdfImage" styleName="mdi-editor-insert-drive-file {css.getStyle.document}"></g:FlowPanel>
+                </g:FlowPanel>
+            </Div>
+            <Div class="{css.getStyle.textpanel}">
+                <center>
+                    <g:Label ui:field="text" styleName="{css.getStyle.text}"></g:Label>
+                    <br></br>
+                    <g:Label ui:field="document" styleName="{css.getStyle.pdfName}"></g:Label>
+                </center>
+            </Div>
+        </g:HTMLPanel>
+    </g:FlowPanel>
+</ui:UiBinder>

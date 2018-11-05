@@ -1,0 +1,11 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <ui:with field='css' type='com.project.presentation.client.gui.layouts.defaulttheme.body.attachment.popup.css.AttachedPopUpStyle'/>
+    <g:FlowPanel ui:field="root" styleName="{css.getStyle.root}">
+        <g:FlowPanel ui:field="header" styleName="{css.getStyle.header} {css.getStyle.noSelect}">
+            <g:Label ui:field="headerTitel" styleName="{css.getStyle.headerTitel}">PDF Anlagen</g:Label>
+        </g:FlowPanel>
+        <g:FlowPanel ui:field="body" styleName="{css.getStyle.body}"/>
+    </g:FlowPanel>
+</ui:UiBinder>

@@ -1,0 +1,11 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <ui:with field="css" type="com.project.presentation.client.gui.components.togglebtn.client.css.ToggelButtonStyle"/>
+    <!--<ui:with field="css" type='ToggelButtonStyle'/>-->
+    <g:FlowPanel>
+        <g:Label ui:field="title" styleName="{css.getStyle.text}"></g:Label>
+        <g:FlowPanel ui:field="border" styleName="{css.getStyle.rahmen}"></g:FlowPanel>
+        <g:FlowPanel ui:field="toggel" styleName="{css.getStyle.round}"></g:FlowPanel>
+    </g:FlowPanel>
+</ui:UiBinder>

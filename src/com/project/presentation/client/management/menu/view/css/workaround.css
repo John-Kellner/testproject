@@ -1,0 +1,36 @@
+/** Add css rules here for your application. */
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+body, td, a, div, .p {
+    font-family: arial, sans-serif
+}
+
+th {
+    font-weight: 100;
+}
+
+/*nav {
+    background-color: #404148 !important;
+}*/
+
+table, tr {
+    background: inherit !important;
+}
+
+.com-google-gwt-user-cellview-client-CellTable-Style-cellTableSelectedRow{
+    color: #404148 !important;
+    font-weight: bold !important;
+
+    width: 0;
+    height: 0;
+    border-left: 3px solid #404148;
+}
+
+.btn, .btn-large {
+    background-color: #404148;
+}

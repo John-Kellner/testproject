@@ -1,0 +1,158 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m='urn:import:gwt.material.design.client.ui'
+             xmlns:chip='urn:import:com.project.presentation.client.gui.components.chip'
+             xmlns:navbar='urn:import:com.project.presentation.client.management.menu.view.navbar'
+             xmlns:button='urn:import:com.project.presentation.client.gui.components.togglebtn.client.button'
+             xmlns:headerpanel='urn:import:com.project.presentation.client.gui.components.headerpanel'>
+
+    <ui:with field='css' type='com.project.presentation.client.management.menu.view.css.MenuViewStyle'/>
+
+    <g:ScrollPanel width="100%">
+        <g:FlowPanel>
+                <navbar:NavBar ui:field="navbar" sideBarWidth="300" color="#454545">
+                    <navbar:nav><m:MaterialLink ui:field="btnOnline" text="Live Profil" icon="mdi-image-portrait" iconPosition="left" textColor="white" tooltip="Live Profil"/></navbar:nav>
+                    <navbar:nav><m:MaterialLink ui:field="btnImpressumNavbar" text="Impressum" textColor="white" tooltip="Impressum" /></navbar:nav>
+                    <navbar:nav><m:MaterialLink ui:field="btnDatenschutz" text="Datenschutz"  textColor="white" tooltip="Datenschutzerklärung" /></navbar:nav>
+                    <navbar:nav><m:MaterialLink ui:field="btnSaveBoard" text="Speichern" icon="mdi-file-cloud-upload" iconPosition="left" textColor="white" tooltip="Speichern" /></navbar:nav>
+                    <navbar:nav><m:MaterialLink ui:field="logout" text="Abmelden" icon="mdi-action-exit-to-app" iconPosition="left" textColor="white" tooltip="Logout" /></navbar:nav>
+                    <navbar:sidebaritem><m:MaterialLink ui:field="btnOnlineSidebar" icon="mdi-image-portrait" iconPosition="left" text="Live Profil" textColor="gray"/></navbar:sidebaritem>
+                    <navbar:sidebaritem><m:MaterialLink ui:field="btnImpressumSidebar" icon="mdi-action-info-outline" iconPosition="left" text="Impressum" textColor="gray"/></navbar:sidebaritem>
+                    <navbar:sidebaritem><m:MaterialLink ui:field="btnDatenschutzSidebar" icon="mdi-action-info-outline" iconPosition="left" text="Datenschutz" textColor="gray"/></navbar:sidebaritem>
+                    <navbar:sidebaritem><m:MaterialLink ui:field="btnSaveBoardSidebar" icon="mdi-file-cloud-upload" iconPosition="left" text="Speichern" textColor="gray"/></navbar:sidebaritem>
+                    <navbar:sidebaritem><m:MaterialLink ui:field="btnLogoutSidebar" icon="mdi-action-exit-to-app" iconPosition="left" text="Abmelden" textColor="gray"/></navbar:sidebaritem>
+                </navbar:NavBar>
+            <m:MaterialRow addStyleNames="{css.getStyle.headerliquendi}">
+                <m:MaterialColumn width="211px" styleName="{css.getStyle.contactpanel}">
+                    <m:MaterialCollapsible type="accordion">
+                        <m:item>
+                            <m:MaterialCollapsibleItem styleName="{css.getStyle.panel}">
+                                <m:header><m:MaterialLink text="Ihr Fotostudio" icon="mdi-action-account-circle" textColor="black" active="true"/></m:header>
+                                <m:content>
+                                    <g:FlowPanel>
+                                        <g:Image ui:field="mImage" styleName="{css.getStyle.image}"/>
+                                        <g:HTML ui:field="mFirma" styleName="{css.getStyle.contactlabel}"/>
+                                        <g:HTML ui:field="mAdresse" styleName="{css.getStyle.contactlabel}"/>
+                                        <g:HTML ui:field="mLand" styleName="{css.getStyle.contactlabel}"/>
+                                        <g:HTML ui:field="mTel" styleName="{css.getStyle.contactlabel}"/>
+                                        <g:HTML ui:field="mFax" styleName="{css.getStyle.contactlabel}"/>
+                                        <g:HTML ui:field="mEmail" styleName="{css.getStyle.contactlabel}"/>
+                                        <g:HTML ui:field="mPage" styleName="{css.getStyle.contactlabel}"/>
+                                        <g:HTML ui:field="mOeffnungszeiten" styleName="{css.getStyle.oeffnunggszeiten}"/>
+                                    </g:FlowPanel>
+                                </m:content>
+                            </m:MaterialCollapsibleItem>
+                        </m:item>
+                    </m:MaterialCollapsible>
+                </m:MaterialColumn>
+
+                <m:MaterialColumn grid="s9">
+                    <chip:ChipContainer ui:field="chipContainer" addStyleNames="{css.getStyle.menuheader}"/>
+                </m:MaterialColumn>
+
+                <m:MaterialColumn addStyleNames="{css.getStyle.maxwidth}">
+                    <g:Image resource="{css.getBundle.image}" styleName="{css.getStyle.logoHeader}"/>
+                    <m:MaterialCollapsible ui:field="container" type="accordion" styleName="{css.getStyle.panel}">
+                        <m:item>
+                            <m:MaterialCollapsibleItem ui:field="colapseItem">
+
+                                <m:header>
+                                    <m:MaterialLink ui:field="tabItemCollapseLink" text="Reiter bearbeiten" icon="mdi-action-settings" textColor="black" active="true">
+
+                                    </m:MaterialLink>
+                                </m:header>
+                                <m:content>
+                                    <g:FlowPanel>
+                                        <headerpanel:HeaderPanel ui:field="headerpanel" styleName="{css.getStyle.headerpanel}"/>
+
+                                        <g:FlowPanel ui:field="bild">
+                                            <g:FlowPanel ui:field="picture" styleName="{css.getStyle.picture}"/>
+                                            <g:Label addStyleNames="{css.getStyle.reiterAuswahl}">1. Tragen Sie eine Überschrift ein.</g:Label>
+                                            <m:MaterialTextBox ui:field="tabItemUeberschrift" placeholder="Überschrift" width="300px"/>
+                                            <g:FlowPanel ui:field="comboTabItemImagePanel" styleName="{css.getStyle.imagespace}" width="300px"/>
+                                        </g:FlowPanel>
+
+                                        <g:FlowPanel ui:field="text" visible="false">
+                                            <g:FlowPanel ui:field="tabItemPanel"/>
+                                        </g:FlowPanel>
+                                    </g:FlowPanel>
+                                </m:content>
+                            </m:MaterialCollapsibleItem>
+                        </m:item>
+
+                        <m:item>
+                            <m:MaterialCollapsibleItem>
+                                <m:header><m:MaterialLink text="Bilder verwalten" icon="mdi-image-camera-alt" textColor="black"/></m:header>
+                                <m:content>
+                                    <g:FlowPanel ui:field="upload">
+                                        <g:Label addStyleNames="{css.getStyle.tabitemDescribtion}">Hier können Sie Bilder hochladen. Die Bilder, die Sie hochladen sollten das Format 1440x440px besitzen und die Größe von 1,5MB nicht überschreiten.</g:Label>
+                                    </g:FlowPanel>
+                                </m:content>
+                                <m:content>
+                                    <g:FlowPanel>
+                                        <m:MaterialButton ui:field="jTableImageDeleteBtn" text="löschen" waves="light" color="#404148" icon="mdi-action-delete" iconPosition="right" size="small"/>
+                                        <!--<m:MaterialTitle description="Bilder können hier hochgeladen werden"/>-->
+                                    </g:FlowPanel>
+                                </m:content>
+                            </m:MaterialCollapsibleItem>
+                        </m:item>
+
+                        <m:item>
+                            <m:MaterialCollapsibleItem>
+                                <m:header><m:MaterialLink text="PDF Anlagen verwalten" icon="mdi-editor-attach-file" textColor="black"/></m:header>
+                                <m:content>
+                                    <g:FlowPanel ui:field="zeugnis">
+                                    </g:FlowPanel>
+                                </m:content>
+                                <m:content>
+                                    <g:Label addStyleNames="{css.getStyle.tabitemDescribtion}">Hier können Sie Anlagen hochladen. Die Anlagen, die Sie hochladen sollten das Format PDF besitzen und die Größe von 1,5MB nicht überschreiten.</g:Label>
+                                </m:content>
+                            </m:MaterialCollapsibleItem>
+                        </m:item>
+
+                        <m:item>
+                            <m:MaterialCollapsibleItem>
+                                <m:header><m:MaterialLink text="Design festlegen" icon="mdi-image-palette" textColor="black"/></m:header>
+                                <m:content>
+                                    <g:FlowPanel>
+                                        <g:Label addStyleNames="{css.getStyle.tabitemDescribtion}">Legen Sie das Design Fest.</g:Label>
+                                        <m:MaterialListBox>
+                                            <item>Default Theme</item>
+                                        </m:MaterialListBox>
+                                        <g:FlowPanel ui:field="colorPickerWidget"/>
+                                    </g:FlowPanel>
+                                </m:content>
+                            </m:MaterialCollapsibleItem>
+                        </m:item>
+
+                        <m:item>
+                            <m:MaterialCollapsibleItem>
+                                <m:header><m:MaterialLink ui:field="qrHeader" text="QRCode generieren" icon="mdi-hardware-phone-android" textColor="black"/></m:header>
+                                <m:content>
+                                    <g:FlowPanel>
+                                        <m:MaterialRow>
+                                            <m:MaterialColumn grid="s5">
+                                                <g:FlowPanel ui:field="qrCodePanel">
+                                                    <g:Image ui:field="qrCodeImage"/>
+                                                </g:FlowPanel>
+                                            </m:MaterialColumn>
+                                            <m:MaterialColumn grid="s4">
+                                                <span class="flow-text"> Der QR Code für Ihren Lebenslauf, der Email Signatur </span>
+                                                <span class="flow-text"> und für Ihre Visitenkarten </span>
+                                            </m:MaterialColumn>
+                                        </m:MaterialRow>
+                                        <g:HTML ui:field="qrCodeDownload" text="Download" addStyleNames="{css.getStyle.qrDownloadLink}"/>
+                                        <g:Label text="Ihr persönlicher Link zum Liveprofil" styleName="{css.getStyle.persoenlicherlinktext}"/>
+                                        <g:HTML ui:field="qrLinkText" addStyleNames="{css.getStyle.qrCodeLink} mdi-image-portrait"/>
+                                        <g:Label ui:field="linkmd5lbl" styleName="{css.getStyle.md5linkactivetext}"/>
+                                        <button:ToggelButton ui:field="md5toggel" styleName="{css.getStyle.md5checkbox}"/>
+                                    </g:FlowPanel>
+                                </m:content>
+                            </m:MaterialCollapsibleItem>
+                        </m:item>
+                    </m:MaterialCollapsible>
+                </m:MaterialColumn>
+            </m:MaterialRow>
+        </g:FlowPanel>
+    </g:ScrollPanel>
+</ui:UiBinder>

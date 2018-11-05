@@ -1,0 +1,14 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m="urn:import:gwt.material.design.client.ui">
+
+    <ui:with field='css' type='com.project.presentation.client.management.studio.view.css.ManagementViewStyle'/>
+
+    <g:ScrollPanel width="100%">
+        <g:FlowPanel ui:field="editor" styleName="{css.getStyle.root}">
+            <g:Label text="Management Platform" styleName="{css.getStyle.headerLabel}" />
+
+
+        </g:FlowPanel>
+    </g:ScrollPanel>
+</ui:UiBinder>

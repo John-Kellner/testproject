@@ -1,0 +1,244 @@
+.root {
+    position: absolute;
+
+    /*display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;*/
+
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+
+    width: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+h1 {
+    font-size: 32px;
+    line-height: 24px;
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 24px;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+h4 {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+h5 {
+    font-size: 13px;
+    line-height: 24px;
+}
+
+h6 {
+    font-size: 11px;
+    line-height: 24px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6em;
+}
+
+strong {
+    font-weight:600;
+}
+
+td, th {
+    vertical-align: top;
+}
+
+.headerGround {
+    position: relative;
+
+    flex: 0 1 100px;
+    order: 1;
+    /*flex: 1;
+    flex-grow: 2;*/
+
+    top: 0px;
+    left: 0px;
+
+    background-color: #404148;
+    line-height: 100%;
+    height: 64%;
+    width: 100%;
+}
+
+.menuBarGround {
+    order: 2;
+    flex: 1;
+    flex-grow: 1;
+    min-height: 46px;
+    max-height: 50px;
+
+    left: 0px;
+    top: 100px;
+    width: 100%;
+    background-color: white;
+}
+
+.imageBarGround {
+    order: 3;
+    flex: 0 1 auto;
+
+    left: 0px;
+    background-color: lightgray;
+   /* height: 80%;*/
+    width: 100%;
+    max-height: 470px;
+}
+
+.imageBarBackground {
+    left: 0px;
+
+}
+
+.imageMeeting {
+    width: 100%;
+    overflow: hidden;
+    max-width: 1440px;
+}
+
+.headerLabel {
+    position: absolute;
+
+    font-size: 2em;
+    color: white;
+    padding-left: 40px;
+
+    float: left;
+
+    line-height: 100%;
+    height: 100%;
+
+    /** Horizontale Text Zentrierung */
+    display: -webkit-box;
+    -webkit-box-pack: initial;
+    -webkit-box-align: center;
+    display: -ms-flexbox;
+    -ms-flex-pack: center;
+    -ms-flex-align: center;
+    display: -moz-box;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+
+    line-height: 70px;
+    width: 400px;
+    height: 100%;
+
+    font-family: sans-serif;
+}
+
+.tabBar {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: 6px;
+    font-family: sans-serif;
+}
+
+.shadow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    font-family: sans-serif;
+}
+
+.htmlMessage {
+    position: absolute;
+    top: 10px;
+    margin-left: 10%;
+    width: 80%;
+
+    font-family: "RobotoDraft","Roboto",sans-serif;
+    letter-spacing: .1px;
+    -webkit-font-smoothing: antialiased;
+
+    line-height: 2.1;
+}
+
+.ground {
+    position: relative;
+    order: 4;
+    flex: 1 1 100%;
+    width: 100%;
+}
+
+.imageLabel {
+    position: absolute;
+    top: 58%;
+    left: 10%;
+    z-index: 100;
+    color: white;
+    font-size: 2.8em;
+    letter-spacing: 4.1px;
+    -webkit-font-smoothing: antialiased;
+    color: lightgray;
+}
+
+.imageLabelShadow {
+    position: absolute;
+    left: 8%;
+    top: 68%;
+    z-index: 100;
+    color: white;
+    font-size: 2.8em;
+    letter-spacing: 4.1px;
+    -webkit-font-smoothing: antialiased;
+    color: black;
+}
+
+.imagePDFDownload {
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    right: 30px;
+    top: 23px;
+}
+
+.downloadPDFText {
+    position: absolute;
+    right: 35px;
+    color: gray;
+    top: 61px;
+}

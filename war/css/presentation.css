@@ -1,0 +1,66 @@
+/** Add css rules here for your application. */
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+body, td, a, div, .p {
+    font-family: arial, sans-serif;
+}
+
+th {
+    font-weight: 100;
+}
+
+table, tr {
+    background: inherit !important;
+}
+
+.com-google-gwt-user-cellview-client-CellTable-Style-cellTableSelectedRow{
+    color: #404148 !important;
+    font-weight: bold !important;
+
+    width: 0;
+    height: 0;
+    border-left: 3px solid #404148;
+}
+
+.btn, .btn-large {
+    background-color: #404148;
+}
+
+@media only screen and (max-width: 1380px) {
+    .lblWillkommen{
+        right: 8px;
+        float: right;
+    }
+    .lblName{
+        float: right;
+        right: 93px;
+    }
+    .logo{
+        visibility: collapse;
+        height: 0px;
+    }
+    .contactpanel{
+        visibility: collapse;
+        height: 0px;
+    }
+}
+
+@media only screen and (min-width: 1380px){
+    .lblWillkommen {
+        left: 119px;
+    }
+    .lblName{
+        left: 123px;
+    }
+    .logo{
+        width: 80px;
+        height: auto;
+        left: 20px;
+        top: 20px;
+    }
+}
